@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class Mission : MonoBehaviour
 {
-    public string displayName;
+    public string title;
     public string description;
     public bool isComplete = false;
     public int panelOrder;
     public int completionOrder;
 
-    public bool CheckComplete()
+    public virtual bool CheckComplete()
     {
-        Console.WriteLine("Error not implemented");
+        //Debug.Log("Error not implemented");
         return false;
     }
 
-    public void OnComplete()
+    public virtual void OnComplete()
     {
-        Console.WriteLine("Error not implemented");
+        //Debug.Log("Error not implemented");
     }
 
     public void Update()
@@ -29,5 +29,10 @@ public class Mission : MonoBehaviour
             this.isComplete = true;
             OnComplete();
         }
+    }
+
+    public void Start()
+    {
+
     }
 }
