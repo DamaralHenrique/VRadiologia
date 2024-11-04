@@ -2230,7 +2230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f06645fc576dfc49ac59aad9caffa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missions: []
+  missions:
+  - {fileID: 2073117959}
 --- !u!4 &871322464
 Transform:
   m_ObjectHideFlags: 0
@@ -2243,7 +2244,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2073117960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &884237535
@@ -3307,6 +3309,55 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1918938110}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2073117958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073117960}
+  - component: {fileID: 2073117959}
+  m_Layer: 0
+  m_Name: PressSpaceMission
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2073117959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073117958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fca2096009199f4ba673f94ea2a4ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Press space
+  description: pressa space
+  isComplete: 0
+  panelOrder: 0
+  completionOrder: 0
+--- !u!4 &2073117960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073117958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 871322464}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2118666530
 PrefabInstance:
   m_ObjectHideFlags: 0

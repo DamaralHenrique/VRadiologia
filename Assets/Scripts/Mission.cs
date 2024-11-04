@@ -11,28 +11,21 @@ public class Mission : MonoBehaviour
     public int panelOrder;
     public int completionOrder;
 
-    public virtual bool CheckComplete()
+    public virtual void CheckComplete()
     {
-        //Debug.Log("Error not implemented");
-        return false;
+        Debug.Log("Error not implemented");
     }
 
-    public virtual void OnComplete()
-    {
-        //Debug.Log("Error not implemented");
-    }
-
-    public void Update()
-    {
-        if (!this.isComplete && CheckComplete())
-        {
-            this.isComplete = true;
-            OnComplete();
+    public virtual void OnComplete() {
+        if (!isComplete) {
+            isComplete = true;
+            Debug.Log($"{title} has been completed!");
         }
     }
 
-    public void Start()
-    {
-
+    public void RequestComplete() {
+        if (!isComplete) {
+            MissionsSystem.Instance.CompleteMission(this);
+        }
     }
 }

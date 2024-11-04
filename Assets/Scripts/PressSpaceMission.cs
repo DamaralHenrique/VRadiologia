@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class PressSpaceMission : Mission
 {
-    public string title = "Press Space";
-    public string description = "teste teste teste";
-    public bool isComplete = false;
-    public int panelOrder = 1;
-    public int completionOrder = 1;
 
-    public override bool CheckComplete()
+    public override void CheckComplete()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            return true;
+            RequestComplete();
         }
-        return false;
     }
 
     public override void OnComplete()
     {
+        base.OnComplete();
+        // Do additional stuff
         Debug.Log("Pressed Spacebar!");
-    }
-
-    public void Start()
-    {
-        Debug.Log("oi");
     }
 }
