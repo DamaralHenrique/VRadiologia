@@ -493,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactorSource: {fileID: 623330654}
   interactRange: 2
+  highlightMaterial: {fileID: 0}
 --- !u!1001 &655825185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1460,11 +1461,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b99dc9f7f8f7caa4699099c8b29ecf8e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1182750383}
+      addedObject: {fileID: 1182750384}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b99dc9f7f8f7caa4699099c8b29ecf8e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1182750384}
+      addedObject: {fileID: 1182750386}
   m_SourcePrefab: {fileID: 100100000, guid: b99dc9f7f8f7caa4699099c8b29ecf8e, type: 3}
 --- !u!1 &1120412983
 GameObject:
@@ -1518,18 +1519,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1060303278}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1182750383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182750381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662fc83538fff98428035a9d8fbbface, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1182750384
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1547,10 +1536,23 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.5623255, y: 4.979195, z: 3.0565698}
   m_Center: {x: -0.28116277, y: 1.9895977, z: -1.0282857}
+--- !u!114 &1182750386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182750381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98da829e1f24f764a95585fb06dbd406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptName: CubeTest
 --- !u!1 &1607047068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,6 +1676,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: b99dc9f7f8f7caa4699099c8b29ecf8e,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: b99dc9f7f8f7caa4699099c8b29ecf8e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21fd0bbb2744b85478691e3950094dff, type: 2}
     - target: {fileID: 919132149155446097, guid: b99dc9f7f8f7caa4699099c8b29ecf8e,
         type: 3}
       propertyPath: m_Name
