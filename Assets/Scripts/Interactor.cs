@@ -41,7 +41,6 @@ public class Interactor : MonoBehaviour
             
             if (hitInfo.collider.gameObject.TryGetComponent(out Renderer renderer))
             {
-                Debug.Log("entrou!");
                 // Se o último renderer não é o mesmo do atual, restaure os materiais anteriores
                 if (lastRenderer != null && lastRenderer != renderer)
                 {
@@ -96,8 +95,6 @@ public class Interactor : MonoBehaviour
         List<Material> materialList = new List<Material>(materials);
         foreach (var mat in materials)
         {
-            Debug.Log(mat.name);
-            Debug.Log(highlightMaterial.name);
             if (mat.name == highlightMaterial.name + " (Instance)")
             {
                 materialList.Remove(mat); // Remove o material de highlight

@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeTest : MonoBehaviour, IInteractable
+public class CubeTest : Mission, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
         
+    public override void CheckComplete()
+    {
+        //
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnComplete()
     {
-        
+        base.OnComplete();
+        // Do additional stuff
+        Debug.Log("CubeTest completed!");
     }
 
     public void Interact()
     {
         Debug.Log("VSF");
+        RequestComplete();
     }
 }
