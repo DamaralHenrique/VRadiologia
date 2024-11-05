@@ -31,7 +31,7 @@ public class MissionsSystem : MonoBehaviour
     }
 
     private void Update() {
-        CheckMissions();
+        // CheckMissions();
     }
 
     public void CheckMissions() {
