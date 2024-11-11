@@ -24,8 +24,6 @@ public class Mission : MonoBehaviour
         if(check){
            check.enabled = isComplete;
         }
-        
-        
     }
 
     public virtual void CheckComplete()

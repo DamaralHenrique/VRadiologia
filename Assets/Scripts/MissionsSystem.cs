@@ -7,7 +7,7 @@ public class MissionsSystem : MonoBehaviour
 
     public static MissionsSystem Instance { get; private set; }
 
-    public List<Mission> missions; // = new List<Mission>();
+    public List<Mission> missions;
     private int currentCompletionOrder = 0;
 
     private void Awake() {
@@ -27,7 +27,7 @@ public class MissionsSystem : MonoBehaviour
             Debug.Log(mission.name);
             Debug.Log(mission.completionOrder);
         }
-        // missions.Sort((m1, m2) => m1.completionOrder.CompareTo(m2.completionOrder));
+         missions.Sort((m1, m2) => m1.completionOrder.CompareTo(m2.completionOrder));
     }
 
     private void Update() {

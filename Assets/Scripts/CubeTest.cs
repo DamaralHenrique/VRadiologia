@@ -19,7 +19,7 @@ public class CubeTest : Mission, IInteractable
 
     public void Interact()
     {
-        Debug.Log("VSF");
+        Debug.Log("Interacting!");
         RequestComplete();
     }
 }
