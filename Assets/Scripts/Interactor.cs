@@ -33,6 +33,28 @@ public class Interactor : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        Ray r = new Ray(interactorSource.position, interactorSource.forward);
+        Debug.DrawLine(r.origin, r.origin + r.direction * interactRange, Color.red);
+
+        if(Physics.Raycast(r, out RaycastHit hitInfo, interactRange)) {
+             if (hitInfo.collider.gameObject.TryGetComponent(out Renderer renderer)) {
+                // Se o último renderer não é o mesmo do atual, restaure os materiais anteriores
+                if (lastRenderer != null && lastRenderer != renderer) {
+                    // Remove o highlight do último objeto
+                    RemoveHighlight(lastRenderer);
+                }
+
+                // Armazena o objeto atual
+                lastRenderer = renderer;
+
+                // Adiciona o material de highlight
+                AddHighlight(renderer);
+            }
+        }else if (lastRenderer != null) {
+            // Remove o highlight quando não há mais um objeto no alvo
+            RemoveHighlight(lastRenderer);
+            lastRenderer = null;
+        }
 
     }
 
@@ -76,31 +98,10 @@ public class Interactor : MonoBehaviour {
         Ray r = new Ray(interactorSource.position, interactorSource.forward);
         Debug.DrawLine(r.origin, r.origin + r.direction * interactRange, Color.red);
 
-        if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange)) {
-            // if (Input.GetKeyDown(KeyCode.P)) {
-
+        if(Physics.Raycast(r, out RaycastHit hitInfo, interactRange)) {
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
                 interactObj.Interact();
             }
-
-            if (hitInfo.collider.gameObject.TryGetComponent(out Renderer renderer)) {
-                // Se o último renderer não é o mesmo do atual, restaure os materiais anteriores
-                if (lastRenderer != null && lastRenderer != renderer) {
-                    // Remove o highlight do último objeto
-                    RemoveHighlight(lastRenderer);
-                }
-
-                // Armazena o objeto atual
-                lastRenderer = renderer;
-
-                // Adiciona o material de highlight
-                AddHighlight(renderer);
-            }
-        }
-        else if (lastRenderer != null) {
-            // Remove o highlight quando não há mais um objeto no alvo
-            RemoveHighlight(lastRenderer);
-            lastRenderer = null;
         }
     }
 }
