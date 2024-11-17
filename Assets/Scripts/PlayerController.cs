@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public Transform VrSimulator;
     public Vector3 startSpawnPosition = Vector3.zero;
 
+    public static PlayerController Instance { get; private set; }
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -30,10 +32,22 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         Debug.Log("PlayerController Awake");
-        DontDestroyOnLoad(Player);
-        DontDestroyOnLoad(XrActionManager);
-        DontDestroyOnLoad(InputActionManager);
-        DontDestroyOnLoad(VrSimulator);
+        // DontDestroyOnLoad(Player);
+        // DontDestroyOnLoad(XrActionManager);
+        // DontDestroyOnLoad(InputActionManager);
+        // DontDestroyOnLoad(VrSimulator);
+
+        if (Instance == null){
+          Instance = this;
+          DontDestroyOnLoad(gameObject);
+          DontDestroyOnLoad(Player);
+          DontDestroyOnLoad(XrActionManager);
+          DontDestroyOnLoad(InputActionManager);
+          DontDestroyOnLoad(VrSimulator);
+        }
+        else{
+            Destroy(gameObject);
+        }
 
         SetPlayerPositionOnSceneLoad();
     }
