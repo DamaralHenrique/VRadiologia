@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Mission : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Mission : MonoBehaviour
     public int panelOrder;
     public int completionOrder;
     // UI
-    public Text textLabel;
+    public TextMeshProUGUI textLabel;
     public Image check;
 
     void Start()
