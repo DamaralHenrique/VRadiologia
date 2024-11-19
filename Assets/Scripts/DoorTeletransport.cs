@@ -19,15 +19,15 @@ public class DoorTeletransport : MonoBehaviour, IInteractable
         string sceneToLoad = "";
         string spawnPointSuffix = "";
 
-        if(destination == "ExamRoom"){
-            sceneToLoad = "ExameRoom";
-            spawnPointSuffix = "EntraceSpawnPoint";
-        }
-        if(destination == "WaitingRoom"){
-            sceneToLoad = "WaitingRoom";
-            spawnPointSuffix = "ExamSpawnPoint";
-        }
-        
-        SceneTransitionManager.Instance.LoadScene(sceneToLoad, spawnPointSuffix);
+        // if(destination == "ExamRoom"){
+        //     sceneToLoad = "ExameRoom";
+        //     spawnPointSuffix = "EntraceSpawnPoint";
+        // }
+        // if(destination == "WaitingRoom"){
+        //     sceneToLoad = "WaitingRoom";
+        //     spawnPointSuffix = "ExamSpawnPoint";
+        // }
+
+        SceneTransitionManager.Instance.LoadScene(destination);
     }
 }

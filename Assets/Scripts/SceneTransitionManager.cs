@@ -22,10 +22,11 @@ public class SceneTransitionManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(string sceneName, string spawnPointSuffix)
+    public void LoadScene(string sceneName, string spawnPointSuffix = null)
     {
-        Debug.Log("LoadScene");
+        Debug.Log("SceneTransitionManager - LoadScene");
         lastScene = SceneManager.GetActiveScene().name;
+        Debug.Log("lastScene: " + lastScene);
         this.spawnPointSuffix = spawnPointSuffix;
         SceneManager.LoadScene(sceneName);
     }
@@ -37,6 +38,7 @@ public class SceneTransitionManager : MonoBehaviour
 
     public string GetLastScene()
     {
+        Debug.Log("GetLastScene");
         return this.lastScene;
     }
 

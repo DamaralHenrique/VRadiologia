@@ -26,18 +26,16 @@ public class PlayerController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("OnSceneLoaded");
         SetPlayerPositionOnSceneLoad();
     }
 
     void Awake()
     {
         Debug.Log("PlayerController Awake");
-        // DontDestroyOnLoad(Player);
-        // DontDestroyOnLoad(XrActionManager);
-        // DontDestroyOnLoad(InputActionManager);
-        // DontDestroyOnLoad(VrSimulator);
 
         if (Instance == null){
+            Debug.Log("Instance is null");
           Instance = this;
           DontDestroyOnLoad(gameObject);
           DontDestroyOnLoad(Player);
@@ -46,7 +44,12 @@ public class PlayerController : MonoBehaviour
           DontDestroyOnLoad(VrSimulator);
         }
         else{
+            Debug.Log("Destroy");
             Destroy(gameObject);
+            Destroy(Player);
+            Destroy(XrActionManager);
+            Destroy(InputActionManager);
+            Destroy(VrSimulator);
         }
 
         SetPlayerPositionOnSceneLoad();
@@ -59,8 +62,16 @@ public class PlayerController : MonoBehaviour
         string lastScene = SceneTransitionManager.Instance.GetLastScene();
         string spawnPointSuffix = SceneTransitionManager.Instance.GetSpawnPointSuffix();
 
+        Debug.Log(lastScene);
+        Debug.Log(spawnPointSuffix);
+
         if(lastScene != null){
-            GameObject spawnTransform = GameObject.Find(spawnPointSuffix);
+            var spawnPointName = "SpawnPoint" + lastScene;
+            if(spawnPointSuffix != null){
+                spawnPointName += spawnPointSuffix;
+            }
+            Debug.Log(spawnPointName);
+            GameObject spawnTransform = GameObject.Find(spawnPointName);
 
             var rotatingAngleY = spawnTransform.transform.rotation.eulerAngles.y - MainCamera.transform.rotation.eulerAngles.y;
 
@@ -73,5 +84,6 @@ public class PlayerController : MonoBehaviour
             Player.SetActive(!Player.activeSelf);
             Player.SetActive(!Player.activeSelf);
         }
+        Debug.Log("SetPlayerPositionOnSceneLoad - end");
     }
 }

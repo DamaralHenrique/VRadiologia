@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/WaitingRoom.unity
     guid: 9852daabdb316234997b227e2f7f50ec
   - enabled: 1
-    path: Assets/Scenes/ExameRoom.unity
+    path: Assets/Scenes/ExamRoom.unity
     guid: f4b4d469937760e48a139aa362cac7f1
+  - enabled: 1
+    path: Assets/Scenes/LabRoom.unity
+    guid: e986e5f6e5d66a244ab9e53278ab00e3
+  - enabled: 1
+    path: Assets/Scenes/InitialRoom.unity
+    guid: 32b08c5b62dd4fc46838fbceec8beeb6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ed72be55522c8448bae8b0d66fa21adf,
       type: 2}
