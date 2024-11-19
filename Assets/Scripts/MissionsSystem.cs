@@ -13,6 +13,7 @@ public class MissionsSystem : MonoBehaviour
     private void Awake() {
         if (Instance == null) {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else {
             Debug.LogWarning("Multiple instances of MissionsSystem detected! Destroying the new instance.");

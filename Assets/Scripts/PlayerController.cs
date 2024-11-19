@@ -60,39 +60,18 @@ public class PlayerController : MonoBehaviour
         string spawnPointSuffix = SceneTransitionManager.Instance.GetSpawnPointSuffix();
 
         if(lastScene != null){
-          GameObject spawnTransform = GameObject.Find(spawnPointSuffix);
+            GameObject spawnTransform = GameObject.Find(spawnPointSuffix);
 
-          var rotatingAngleY = spawnTransform.transform.rotation.eulerAngles.y - MainCamera.transform.rotation.eulerAngles.y;
+            var rotatingAngleY = spawnTransform.transform.rotation.eulerAngles.y - MainCamera.transform.rotation.eulerAngles.y;
 
-          Player.transform.Rotate(0, rotatingAngleY, 0);
+            Player.transform.Rotate(0, rotatingAngleY, 0);
 
-          var distanceDiff = spawnTransform.transform.position - MainCamera.transform.position;
+            var distanceDiff = spawnTransform.transform.position - MainCamera.transform.position;
 
-          Player.transform.position += distanceDiff;
+            Player.transform.position += distanceDiff;
+
+            Player.SetActive(!Player.activeSelf);
+            Player.SetActive(!Player.activeSelf);
         }
-        
-        // Vector3 spawnPosition;
-        // string lastScene = SceneTransitionManager.Instance.GetLastScene();
-        // string spawnPointSuffix = SceneTransitionManager.Instance.GetSpawnPointSuffix();
-
-        // if (lastScene == null)
-        // {
-        //     Debug.Log("First scene");
-        //     spawnPosition = startSpawnPosition;
-        // }
-        // else
-        // {
-        //     Debug.Log("Last scene: " + lastScene);
-        //     // var spawnPointName = "SpawnPoint" + lastScene + spawnPointSuffix;
-        //     var spawnPointName = spawnPointSuffix;
-        //     Debug.Log("spawnPointName: " + spawnPointName);
-        //     spawnPosition = GameObject.Find(spawnPointName).transform.position;
-        // }
-
-        // // transform.position = spawnPosition;
-        // XrRig.transform.position = spawnPosition;
-        // // MainCamera.transform.position = spawnPosition;
-        // MainCamera.transform.position = new Vector3(0, 0, 0);
-        // Debug.Log("Player position: " + transform.position);
     }
 }
