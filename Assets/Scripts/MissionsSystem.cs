@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MissionsSystem : MonoBehaviour
 {
@@ -9,6 +10,22 @@ public class MissionsSystem : MonoBehaviour
 
     public List<Mission> missions;
     private int currentCompletionOrder = 0;
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("MissionsSystem - OnSceneLoaded");
+        SetMissionsPositionOnSceneLoad();
+    }
 
     private void Awake() {
         if (Instance == null) {
@@ -57,5 +74,33 @@ public class MissionsSystem : MonoBehaviour
             Debug.LogError($"Error: Attempted to complete mission '{mission.title}' out of order. " +
                            $"Current order: {currentCompletionOrder}, Mission order: {mission.completionOrder}");
         }
+    }
+
+    void SetMissionsPositionOnSceneLoad()
+    {
+        Debug.Log("MissionsSystem - SetMissionsPositionOnSceneLoad");
+        // string lastScene = SceneTransitionManager.Instance.GetLastScene();
+        // string spawnPointSuffix = SceneTransitionManager.Instance.GetSpawnPointSuffix();
+
+        // Debug.Log(lastScene);
+        // Debug.Log(spawnPointSuffix);
+
+        foreach(Mission mission in missions){
+            Debug.Log("mission.name: " + mission.name);
+            GameObject spawnTransform = GameObject.Find("SpawnPoint" + mission.name);
+            if(spawnTransform){
+                mission.GetComponent<Renderer>().enabled = true;
+                mission.GetComponent<Collider>().enabled = true;
+                mission.transform.rotation = spawnTransform.transform.rotation;
+
+                mission.transform.position = spawnTransform.transform.position;
+            }else{
+                Debug.Log("Sem spawn point");
+                mission.GetComponent<Renderer>().enabled = false;
+                mission.GetComponent<Collider>().enabled = false;
+            }
+        }
+
+        Debug.Log("MissionsSystem - SetMissionsPositionOnSceneLoad - end");
     }
 }

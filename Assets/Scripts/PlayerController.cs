@@ -36,12 +36,12 @@ public class PlayerController : MonoBehaviour
 
         if (Instance == null){
             Debug.Log("Instance is null");
-          Instance = this;
-          DontDestroyOnLoad(gameObject);
-          DontDestroyOnLoad(Player);
-          DontDestroyOnLoad(XrActionManager);
-          DontDestroyOnLoad(InputActionManager);
-          DontDestroyOnLoad(VrSimulator);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(Player);
+            DontDestroyOnLoad(XrActionManager);
+            DontDestroyOnLoad(InputActionManager);
+            DontDestroyOnLoad(VrSimulator);
         }
         else{
             Debug.Log("Destroy");
