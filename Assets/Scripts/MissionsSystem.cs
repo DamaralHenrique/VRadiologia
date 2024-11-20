@@ -51,8 +51,6 @@ public class MissionsSystem : MonoBehaviour
         missionsByOrder = missions
             .GroupBy(mission => mission.completionOrder) 
             .ToDictionary(group => group.Key, group => group.Count());
-            // .Select(group => new { Order = group.Key, Count = group.Count() })
-            // .ToList();
     }
 
     private void Update() {
