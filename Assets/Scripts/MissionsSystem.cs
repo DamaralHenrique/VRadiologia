@@ -72,14 +72,13 @@ public class MissionsSystem : MonoBehaviour
 
     public void CompleteMission(Mission mission) {
         if (mission.completionOrder == currentCompletionOrder) {
+            mission.OnComplete();
             if(missionsByOrder[currentCompletionOrder] == currentMissionsByOrder+1){
-                mission.OnComplete();
                 currentCompletionOrder++;
                 currentMissionsByOrder = 0;
             }else{
                 currentMissionsByOrder++;
             }
-            
         }
         else {
             Debug.LogError($"Error: Attempted to complete mission '{mission.title}' out of order. " +

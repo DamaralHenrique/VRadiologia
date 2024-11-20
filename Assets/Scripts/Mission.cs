@@ -22,7 +22,7 @@ public class Mission : MonoBehaviour
     {
         Debug.Log(title +" start!");
         if(textLabel){
-           textLabel.text = description; 
+           textLabel.text = completionOrder+ ". " + description; 
         }
         if(check){
            check.enabled = isComplete;

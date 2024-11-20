@@ -71,8 +71,6 @@ public class Interactor : MonoBehaviour {
 
         Material customizedHighlightMaterial = new Material(highlightMaterial);
 
-        Debug.Log("objectName: " + objectName);
-
         if (objectName == "Cube.001") { // PatientCheckup
             customizedHighlightMaterial.SetFloat("_Outline_Thickness", 0.0001f);
         } else {
