@@ -265,6 +265,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ec859460b7087a49804f8f6d1901e91,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 522463399}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ec859460b7087a49804f8f6d1901e91,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 522463398}
   m_SourcePrefab: {fileID: 100100000, guid: 0ec859460b7087a49804f8f6d1901e91, type: 3}
 --- !u!1 &522463397 stripped
@@ -286,10 +290,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptName: DoorTeletransport
-  Parameters:
-  - Name: destination
-    Type: 0
-    Value: WaitingRoom
+--- !u!114 &522463399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522463397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ee7c27eddac654aaf113e45ee6061c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: WaitingRoom
 --- !u!1 &1331157416
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,13 +496,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977095575}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.688019, z: 0, w: 0.7256927}
   m_LocalPosition: {x: 2.287408, y: 4.313071, z: -4.00736}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1773924425}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 86.947, z: 0}
 --- !u!1 &2052844793
 GameObject:
   m_ObjectHideFlags: 0

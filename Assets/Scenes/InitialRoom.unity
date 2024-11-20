@@ -1472,24 +1472,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -27.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &920221378 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7548498303213627220, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2130382794}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662fc83538fff98428035a9d8fbbface, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &920221382 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2130382794}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1004055337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3292,7 +3274,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8a678253f336ab4badce24571c4be3e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1674119610}
+      addedObject: {fileID: 1674119611}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8a678253f336ab4badce24571c4be3e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1674119612}
   m_SourcePrefab: {fileID: 100100000, guid: c8a678253f336ab4badce24571c4be3e, type: 3}
 --- !u!4 &1674119608 stripped
 Transform:
@@ -3306,7 +3292,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1674119607}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1674119610
+--- !u!114 &1674119611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3315,11 +3301,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1674119609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5413ff1c318f2404f8f346a2d2df51b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 662fc83538fff98428035a9d8fbbface, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptName: CubeTest
-  Parameters: []
   title: Vestir colete plumbifero
   description: Vestir colete plumbifero
   isComplete: 0
@@ -3327,6 +3311,19 @@ MonoBehaviour:
   completionOrder: 0
   textLabel: {fileID: 1996740895}
   check: {fileID: 1203188192}
+--- !u!114 &1674119612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674119609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98da829e1f24f764a95585fb06dbd406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptName: CubeTest
 --- !u!1 &1703790005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3373,9 +3370,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1848917714}
-  - component: {fileID: 1848917715}
   - component: {fileID: 1848917712}
   - component: {fileID: 1848917711}
+  - component: {fileID: 1848917715}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -4263,7 +4260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missions:
-  - {fileID: 920221378}
+  - {fileID: 1674119611}
   - {fileID: 633264324}
   - {fileID: 594960099}
 --- !u!4 &2094105246
@@ -4280,89 +4277,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 594960103}
-  - {fileID: 920221382}
   - {fileID: 633264328}
   - {fileID: 1674119608}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2130382794
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2094105246}
-    m_Modifications:
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.506
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206082651011959880, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6206183589874256561, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: m_Name
-      value: MissionRedCube
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548498303213627220, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: check
-      value: 
-      objectReference: {fileID: 1203188192}
-    - target: {fileID: 7548498303213627220, guid: 6763cbaa117012a4f99c56fcf3594d1c,
-        type: 3}
-      propertyPath: textLabel
-      value: 
-      objectReference: {fileID: 1996740895}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6763cbaa117012a4f99c56fcf3594d1c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

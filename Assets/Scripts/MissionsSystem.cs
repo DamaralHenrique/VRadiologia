@@ -79,25 +79,18 @@ public class MissionsSystem : MonoBehaviour
     void SetMissionsPositionOnSceneLoad()
     {
         Debug.Log("MissionsSystem - SetMissionsPositionOnSceneLoad");
-        // string lastScene = SceneTransitionManager.Instance.GetLastScene();
-        // string spawnPointSuffix = SceneTransitionManager.Instance.GetSpawnPointSuffix();
-
-        // Debug.Log(lastScene);
-        // Debug.Log(spawnPointSuffix);
 
         foreach(Mission mission in missions){
             Debug.Log("mission.name: " + mission.name);
             GameObject spawnTransform = GameObject.Find("SpawnPoint" + mission.name);
-            if(spawnTransform){
-                mission.GetComponent<Renderer>().enabled = true;
-                mission.GetComponent<Collider>().enabled = true;
+            if(!mission.isComplete && spawnTransform){
+                mission.ChangeAllComponentsVisibility(true);
                 mission.transform.rotation = spawnTransform.transform.rotation;
 
                 mission.transform.position = spawnTransform.transform.position;
             }else{
                 Debug.Log("Sem spawn point");
-                mission.GetComponent<Renderer>().enabled = false;
-                mission.GetComponent<Collider>().enabled = false;
+                mission.ChangeAllComponentsVisibility(false);
             }
         }
 
