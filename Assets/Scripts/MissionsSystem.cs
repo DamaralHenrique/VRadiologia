@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class MissionsSystem : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class MissionsSystem : MonoBehaviour
     public static MissionsSystem Instance { get; private set; }
 
     public List<Mission> missions;
+    public Dictionary<int, int> missionsByOrder;
     private int currentCompletionOrder = 0;
+    private int currentMissionsByOrder = 0;
 
     void OnEnable()
     {
@@ -40,12 +43,16 @@ public class MissionsSystem : MonoBehaviour
     }
 
     private void Start() {
+        Debug.Log("MissionsSystem - Start");
         Debug.Log(missions);
-        foreach (var mission in missions) {
-            Debug.Log(mission.name);
-            Debug.Log(mission.completionOrder);
-        }
-         missions.Sort((m1, m2) => m1.completionOrder.CompareTo(m2.completionOrder));
+
+        missions.Sort((m1, m2) => m1.completionOrder.CompareTo(m2.completionOrder));
+
+        missionsByOrder = missions
+            .GroupBy(mission => mission.completionOrder) 
+            .ToDictionary(group => group.Key, group => group.Count());
+            // .Select(group => new { Order = group.Key, Count = group.Count() })
+            // .ToList();
     }
 
     private void Update() {
@@ -67,12 +74,19 @@ public class MissionsSystem : MonoBehaviour
 
     public void CompleteMission(Mission mission) {
         if (mission.completionOrder == currentCompletionOrder) {
-            mission.OnComplete();
-            currentCompletionOrder++;
+            if(missionsByOrder[currentCompletionOrder] == currentMissionsByOrder+1){
+                mission.OnComplete();
+                currentCompletionOrder++;
+                currentMissionsByOrder = 0;
+            }else{
+                currentMissionsByOrder++;
+            }
+            
         }
         else {
             Debug.LogError($"Error: Attempted to complete mission '{mission.title}' out of order. " +
-                           $"Current order: {currentCompletionOrder}, Mission order: {mission.completionOrder}");
+                           $"Current order: {currentCompletionOrder}, Mission order: {mission.completionOrder}" +
+                           $"Current Missions By Order: {currentMissionsByOrder}");
         }
     }
 

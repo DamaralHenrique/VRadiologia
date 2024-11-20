@@ -19,7 +19,7 @@ public class ChildrenInteractWithParentScript : MonoBehaviour
 
             if (parentScript != null)
             {
-                ConfigureChildWithParentScript(parentScript);
+                ConfigureChildWithParentScript(this.gameObject, parentScript);
             }
             else
             {
@@ -32,13 +32,19 @@ public class ChildrenInteractWithParentScript : MonoBehaviour
         }
     }
 
-    protected void ConfigureChildWithParentScript(Component parentScript)
+    protected void ConfigureChildWithParentScript(GameObject parent, Component parentScript)
     {
-        foreach (Transform child in transform)
+        if(parent.transform.childCount == 0){
+            return;
+        }
+
+        foreach (Transform child in parent.transform)
         {
             ChildScript childScript = child.gameObject.AddComponent<ChildScript>();
             
             childScript.parentScript = parentScript;
+
+            ConfigureChildWithParentScript(child.gameObject, childScript);
         }
     }
 }
