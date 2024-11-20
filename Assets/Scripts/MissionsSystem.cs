@@ -83,7 +83,7 @@ public class MissionsSystem : MonoBehaviour
         foreach(Mission mission in missions){
             Debug.Log("mission.name: " + mission.name);
             GameObject spawnTransform = GameObject.Find("SpawnPoint" + mission.name);
-            if(!mission.isComplete && spawnTransform){
+            if(mission.isVisible && spawnTransform){
                 mission.ChangeAllComponentsVisibility(true);
                 mission.transform.rotation = spawnTransform.transform.rotation;
 

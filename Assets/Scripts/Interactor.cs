@@ -48,7 +48,7 @@ public class Interactor : MonoBehaviour {
                 lastRenderer = renderer;
 
                 // Adiciona o material de highlight
-                AddHighlight(renderer);
+                AddHighlight(renderer, hitInfo.collider.gameObject.name);
             }
         }else if (lastRenderer != null) {
             // Remove o highlight quando não há mais um objeto no alvo
@@ -58,7 +58,7 @@ public class Interactor : MonoBehaviour {
 
     }
 
-    void AddHighlight(Renderer renderer) {
+    void AddHighlight(Renderer renderer, string objectName) {
         // Cria uma nova lista de materiais
         Material[] materials = renderer.materials;
 
@@ -69,10 +69,20 @@ public class Interactor : MonoBehaviour {
             }
         }
 
+        Material customizedHighlightMaterial = new Material(highlightMaterial);
+
+        Debug.Log("objectName: " + objectName);
+
+        if (objectName == "Cube.001") { // PatientCheckup
+            customizedHighlightMaterial.SetFloat("_Outline_Thickness", 0.0001f);
+        } else {
+            customizedHighlightMaterial.SetFloat("_Outline_Thickness", 0.0287f);
+        }
+
         // Cria um novo array com espaço para o novo material
         Material[] newMaterials = new Material[materials.Length + 1];
         materials.CopyTo(newMaterials, 0); // Copia os materiais existentes
-        newMaterials[newMaterials.Length - 1] = highlightMaterial; // Adiciona o novo material
+        newMaterials[newMaterials.Length - 1] = customizedHighlightMaterial; // Adiciona o novo material
 
         // Aplica a nova lista de materiais ao renderer
         renderer.materials = newMaterials;

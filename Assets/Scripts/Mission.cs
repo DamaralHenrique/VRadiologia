@@ -10,6 +10,8 @@ public class Mission : MonoBehaviour
     public string title;
     public string description;
     public bool isComplete = false;
+    public bool disappearAfterComplete = true;
+    public bool isVisible = true;
     public int panelOrder;
     public int completionOrder;
     // UI
@@ -41,7 +43,10 @@ public class Mission : MonoBehaviour
             
             Debug.Log($"{title} has been completed!");
 
-            ChangeAllComponentsVisibility(false);
+            if(disappearAfterComplete){
+                isVisible = false;
+                ChangeAllComponentsVisibility(false);
+            }
         }
     }
 
