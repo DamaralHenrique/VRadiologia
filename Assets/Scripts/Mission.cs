@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using System.Threading.Tasks;
 
 public class Mission : MonoBehaviour
 {
@@ -17,6 +19,9 @@ public class Mission : MonoBehaviour
     // UI
     public TextMeshProUGUI textLabel;
     public Image check;
+    public GameObject canvasOverlay;
+    public Image targetImage;
+    public string imageName;
 
     void Start()
     {
@@ -42,6 +47,8 @@ public class Mission : MonoBehaviour
             }
             
             Debug.Log($"{title} has been completed!");
+
+            LoadLocalImage();
 
             if(disappearAfterComplete){
                 isVisible = false;
@@ -83,6 +90,29 @@ public class Mission : MonoBehaviour
         if (collider != null)
         {
             collider.enabled = isVisible;
+        }
+    }
+
+    public async Task LoadLocalImage()
+    {
+        string imagePath = "Assets/img/" + imageName;
+        if (File.Exists(imagePath))
+        {
+            byte[] imageData = File.ReadAllBytes(imagePath);
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(imageData);
+            Sprite sprite = Sprite.Create(texture, 
+                new Rect(0, 0, texture.width, texture.height), 
+                new Vector2(0.5f, 0.5f));
+            targetImage.sprite = sprite;
+
+            canvasOverlay.SetActive(true);
+            await Task.Delay(5000); // Wait 5 sec
+            canvasOverlay.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Arquivo não encontrado: " + imagePath);
         }
     }
 }
