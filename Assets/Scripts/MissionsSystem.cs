@@ -81,9 +81,10 @@ public class MissionsSystem : MonoBehaviour
             }
         }
         else {
-            Debug.LogError($"Error: Attempted to complete mission '{mission.title}' out of order. " +
+            Debug.Log($"Error: Attempted to complete mission '{mission.title}' out of order. " +
                            $"Current order: {currentCompletionOrder}, Mission order: {mission.completionOrder}" +
                            $"Current Missions By Order: {currentMissionsByOrder}");
+            mission.ShowError("Ordem incorreta, verifique a lista de missões novamente");
         }
     }
 

@@ -102,20 +102,44 @@ public class Mission : MonoBehaviour
         {
             byte[] imageData = File.ReadAllBytes(imagePath);
             Texture2D texture = new Texture2D(2, 2);
-            texture.LoadImage(imageData);
+            // texture.LoadImage(imageData);
+            bool isLoaded = texture.LoadImage(imageData);
+
+            if (!isLoaded)
+            {
+                Debug.LogError("Falha ao carregar a imagem.");
+                return;
+            }
+
             Sprite sprite = Sprite.Create(texture, 
                 new Rect(0, 0, texture.width, texture.height), 
                 new Vector2(0.5f, 0.5f));
+
             targetImage.sprite = sprite;
 
+            targetImage.enabled = true;
             canvasOverlay.SetActive(true);
             await Task.Delay(1000); // Wait 5 sec
             canvasOverlay.SetActive(false);
+            // targetImage.enabled = false;
         }
         else
         {
             Debug.LogError("Arquivo não encontrado: " + imagePath);
         }
+    }
+
+    public async Task ShowError(string error)
+    {
+        Debug.Log("ShowError");
+        TextMeshProUGUI targetText = canvasOverlay.GetComponentInChildren<TextMeshProUGUI>();
+
+        targetText.text = error;
+        canvasOverlay.SetActive(true);
+        targetImage.enabled = false;
+        await Task.Delay(1000); // Wait 5 sec
+        canvasOverlay.SetActive(false);
+        targetText.text = "";
     }
 
     virtual public void SetMissionPositionOnSceneLoad()
