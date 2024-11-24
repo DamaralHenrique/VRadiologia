@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatientCheckupMission : Mission, IInteractable
+public class PatientTakeAwayMission : Mission, IInteractable
 {
     public GameObject pacient;
         
@@ -14,15 +14,13 @@ public class PatientCheckupMission : Mission, IInteractable
     public override void OnComplete()
     {
         base.OnComplete();
-        Debug.Log("PatientCheckupMission completed!");
-        PatientTakeAwayMission pacientMission = pacient.GetComponent<PatientTakeAwayMission>();
+        Debug.Log("PatientTakeAwayMission completed!");
+        PatientLayDownMission pacientMission = pacient.GetComponent<PatientLayDownMission>();
         if (pacientMission != null)
         {
             Debug.Log("Has mission");
             pacientMission.isVisible = true; // Altere o parâmetro
         }
-        Debug.Log("Change visibility");
-        ChangeAllComponentsVisibility(pacient, true);
     }
 
     public void Interact()

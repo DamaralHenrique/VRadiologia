@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatientCheckupMission : Mission, IInteractable
+public class PatientStartExamMission : Mission, IInteractable
 {
+    public GameObject door;
     public GameObject pacient;
+    public GameObject pacientLayDown;
+
+
         
     public override void CheckComplete()
     {
@@ -14,7 +18,14 @@ public class PatientCheckupMission : Mission, IInteractable
     public override void OnComplete()
     {
         base.OnComplete();
-        Debug.Log("PatientCheckupMission completed!");
+        Debug.Log("PatientStartExamMission completed!");
+
+        Vector3 rotation = door.transform.rotation.eulerAngles;
+        rotation.y = 14.297f;
+        door.transform.rotation = Quaternion.Euler(rotation);
+
+        pacientLayDown.SetActive(false);
+
         PatientTakeAwayMission pacientMission = pacient.GetComponent<PatientTakeAwayMission>();
         if (pacientMission != null)
         {
