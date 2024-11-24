@@ -22,12 +22,13 @@ public class Mission : MonoBehaviour
     public GameObject canvasOverlay;
     public Image targetImage;
     public string imageName;
+    public bool hasSpawn = true;
 
     void Start()
     {
         Debug.Log(title +" start!");
         if(textLabel){
-           textLabel.text = completionOrder+ ". " + description; 
+           textLabel.text = (completionOrder+1)+ ". " + description; 
         }
         if(check){
            check.enabled = isComplete;
@@ -50,9 +51,10 @@ public class Mission : MonoBehaviour
 
             LoadLocalImage();
 
+            Debug.Log("disappearAfterComplete:" + disappearAfterComplete);
             if(disappearAfterComplete){
                 isVisible = false;
-                ChangeAllComponentsVisibility(false);
+                ChangeAllComponentsVisibility(this.gameObject, false);
             }
         }
     }
@@ -65,14 +67,14 @@ public class Mission : MonoBehaviour
         }
     }
 
-    public void ChangeAllComponentsVisibility(bool isVisible)
+    public void ChangeAllComponentsVisibility(GameObject obj, bool isVisible)
     {
-        ChangeComponentVisibility(this.gameObject, isVisible);
+        ChangeComponentVisibility(obj, isVisible);
 
         // Desativa o Renderer e Collider em todos os filhos
-        foreach (Transform child in transform)
+        foreach (Transform child in obj.transform)
         {
-            ChangeComponentVisibility(child.gameObject, isVisible);
+            ChangeAllComponentsVisibility(child.gameObject, isVisible);
         }
     }
 
@@ -107,12 +109,31 @@ public class Mission : MonoBehaviour
             targetImage.sprite = sprite;
 
             canvasOverlay.SetActive(true);
-            await Task.Delay(5000); // Wait 5 sec
+            await Task.Delay(1000); // Wait 5 sec
             canvasOverlay.SetActive(false);
         }
         else
         {
             Debug.LogError("Arquivo não encontrado: " + imagePath);
         }
+    }
+
+    virtual public void SetMissionPositionOnSceneLoad()
+    {
+        Debug.Log("mission.name: " + this.gameObject.name);
+        if(hasSpawn){
+            GameObject spawnTransform = GameObject.Find("SpawnPoint" + this.gameObject.name);
+            Debug.Log("isVisible: " + isVisible);
+            if(isVisible && spawnTransform){
+                ChangeAllComponentsVisibility(this.gameObject, true);
+                transform.rotation = spawnTransform.transform.rotation;
+
+                transform.position = spawnTransform.transform.position;
+            }else{
+                Debug.Log("Sem spawn point");
+                ChangeAllComponentsVisibility(this.gameObject, false);
+            } 
+        }
+        
     }
 }

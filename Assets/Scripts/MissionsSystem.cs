@@ -92,17 +92,7 @@ public class MissionsSystem : MonoBehaviour
         Debug.Log("MissionsSystem - SetMissionsPositionOnSceneLoad");
 
         foreach(Mission mission in missions){
-            Debug.Log("mission.name: " + mission.name);
-            GameObject spawnTransform = GameObject.Find("SpawnPoint" + mission.name);
-            if(mission.isVisible && spawnTransform){
-                mission.ChangeAllComponentsVisibility(true);
-                mission.transform.rotation = spawnTransform.transform.rotation;
-
-                mission.transform.position = spawnTransform.transform.position;
-            }else{
-                Debug.Log("Sem spawn point");
-                mission.ChangeAllComponentsVisibility(false);
-            }
+            mission.SetMissionPositionOnSceneLoad();
         }
 
         Debug.Log("MissionsSystem - SetMissionsPositionOnSceneLoad - end");
