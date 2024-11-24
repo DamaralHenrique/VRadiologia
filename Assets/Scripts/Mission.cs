@@ -121,7 +121,6 @@ public class Mission : MonoBehaviour
             canvasOverlay.SetActive(true);
             await Task.Delay(1000); // Wait 5 sec
             canvasOverlay.SetActive(false);
-            // targetImage.enabled = false;
         }
         else
         {
@@ -131,7 +130,6 @@ public class Mission : MonoBehaviour
 
     public async Task ShowError(string error)
     {
-        Debug.Log("ShowError");
         TextMeshProUGUI targetText = canvasOverlay.GetComponentInChildren<TextMeshProUGUI>();
 
         targetText.text = error;
