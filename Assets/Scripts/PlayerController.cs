@@ -44,12 +44,12 @@ public class PlayerController : MonoBehaviour
             DontDestroyOnLoad(VrSimulator);
         }
         else{
-            Debug.Log("Destroy");
-            Destroy(gameObject);
-            Destroy(Player);
-            Destroy(XrActionManager);
-            Destroy(InputActionManager);
-            Destroy(VrSimulator);
+            // Debug.Log("Destroy");
+            // Destroy(gameObject);
+            // Destroy(Player);
+            // Destroy(XrActionManager);
+            // Destroy(InputActionManager);
+            // Destroy(VrSimulator);
         }
 
         SetPlayerPositionOnSceneLoad();
@@ -59,31 +59,34 @@ public class PlayerController : MonoBehaviour
     {
 
         Debug.Log("SetPlayerPositionOnSceneLoad");
-        string lastScene = SceneTransitionManager.Instance.GetLastScene();
-        string spawnPointSuffix = SceneTransitionManager.Instance.GetSpawnPointSuffix();
+        if(SceneTransitionManager.Instance){
+            string lastScene = SceneTransitionManager.Instance.GetLastScene();
+            string spawnPointSuffix = SceneTransitionManager.Instance.GetSpawnPointSuffix();
 
-        Debug.Log(lastScene);
-        Debug.Log(spawnPointSuffix);
+            Debug.Log(lastScene);
+            Debug.Log(spawnPointSuffix);
 
-        if(lastScene != null){
-            var spawnPointName = "SpawnPoint" + lastScene;
-            if(spawnPointSuffix != null){
-                spawnPointName += spawnPointSuffix;
+            if(lastScene != null){
+                var spawnPointName = "SpawnPoint" + lastScene;
+                if(spawnPointSuffix != null){
+                    spawnPointName += spawnPointSuffix;
+                }
+                Debug.Log(spawnPointName);
+                GameObject spawnTransform = GameObject.Find(spawnPointName);
+
+                var rotatingAngleY = spawnTransform.transform.rotation.eulerAngles.y - MainCamera.transform.rotation.eulerAngles.y;
+
+                Player.transform.Rotate(0, rotatingAngleY, 0);
+
+                var distanceDiff = spawnTransform.transform.position - MainCamera.transform.position;
+
+                Player.transform.position += distanceDiff;
             }
-            Debug.Log(spawnPointName);
-            GameObject spawnTransform = GameObject.Find(spawnPointName);
-
-            var rotatingAngleY = spawnTransform.transform.rotation.eulerAngles.y - MainCamera.transform.rotation.eulerAngles.y;
-
-            Player.transform.Rotate(0, rotatingAngleY, 0);
-
-            var distanceDiff = spawnTransform.transform.position - MainCamera.transform.position;
-
-            Player.transform.position += distanceDiff;
-
-            Player.SetActive(!Player.activeSelf);
-            Player.SetActive(!Player.activeSelf);
         }
+        
+        Player.SetActive(false);
+        Player.SetActive(true);
+
         Debug.Log("SetPlayerPositionOnSceneLoad - end");
     }
 }

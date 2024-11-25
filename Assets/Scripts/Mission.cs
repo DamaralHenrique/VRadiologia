@@ -119,7 +119,7 @@ public class Mission : MonoBehaviour
 
             targetImage.enabled = true;
             canvasOverlay.SetActive(true);
-            await Task.Delay(1000); // Wait 5 sec
+            await Task.Delay(5000); // Wait 5 sec
             canvasOverlay.SetActive(false);
         }
         else
@@ -135,7 +135,7 @@ public class Mission : MonoBehaviour
         targetText.text = error;
         canvasOverlay.SetActive(true);
         targetImage.enabled = false;
-        await Task.Delay(1000); // Wait 5 sec
+        await Task.Delay(5000); // Wait 5 sec
         canvasOverlay.SetActive(false);
         targetText.text = "";
     }

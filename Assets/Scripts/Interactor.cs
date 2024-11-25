@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Interactor : MonoBehaviour {
     public Transform interactorSource;
-    public float interactRange = 5f;
+    public float interactRange = 3f;
     public Material highlightMaterial;
     private Material originalMaterial;
     private Renderer lastRenderer;
