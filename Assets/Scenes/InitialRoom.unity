@@ -789,7 +789,7 @@ RectTransform:
   m_GameObject: {fileID: 107721487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.26439393, y: 0.26439393, z: 0.26439393}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2134787943}
@@ -797,7 +797,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1500, y: 844}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &107721489
 MonoBehaviour:
@@ -2928,7 +2928,7 @@ MonoBehaviour:
   check: {fileID: 1133318157}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: 
+  imageName: 08-Exame.jpg
   hasSpawn: 1
   door: {fileID: 522501234}
   pacient: {fileID: 931551551}
@@ -3265,7 +3265,7 @@ MonoBehaviour:
   check: {fileID: 1870439515}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: 
+  imageName: Espera.jpg
   hasSpawn: 1
 --- !u!1 &750626514
 GameObject:
@@ -3887,7 +3887,7 @@ MonoBehaviour:
   check: {fileID: 1479806362}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: 
+  imageName: 07-Deita.jpg
   hasSpawn: 1
   pacient: {fileID: 185191338}
 --- !u!1001 &790044124
@@ -5205,7 +5205,7 @@ MonoBehaviour:
   check: {fileID: 268013507}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: 
+  imageName: 09-Libera.jpg
   hasSpawn: 1
 --- !u!4 &934911310 stripped
 Transform:
@@ -5236,7 +5236,7 @@ MonoBehaviour:
   check: {fileID: 372755988}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: 
+  imageName: 04-Injecao.jpg
   hasSpawn: 0
 --- !u!1 &955020881
 GameObject:
@@ -5899,7 +5899,7 @@ MonoBehaviour:
   check: {fileID: 1950638209}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: 
+  imageName: 06-Leva.jpg
   hasSpawn: 1
   pacient: {fileID: 751724539}
 --- !u!1 &998501920
@@ -7650,7 +7650,7 @@ MonoBehaviour:
   check: {fileID: 57048131}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: 
+  imageName: 02-Confirmacao.jpg
   hasSpawn: 1
   pacient: {fileID: 974587227}
 --- !u!114 &1109563186
@@ -9025,7 +9025,7 @@ MonoBehaviour:
   check: {fileID: 1933756341}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: 
+  imageName: 03-Averiguacao.jpg
   hasSpawn: 0
 --- !u!1 &1479806360
 GameObject:
@@ -9490,7 +9490,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9656,7 +9656,7 @@ MonoBehaviour:
   check: {fileID: 1203188192}
   canvasOverlay: {fileID: 2134787942}
   targetImage: {fileID: 107721489}
-  imageName: Teste1.jfif
+  imageName: 01-Protecao.jpg
   hasSpawn: 1
 --- !u!114 &1674119612
 MonoBehaviour:
