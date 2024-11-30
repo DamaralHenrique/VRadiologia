@@ -95,7 +95,7 @@ public class Mission : MonoBehaviour
         }
     }
 
-    public async Task LoadLocalImage()
+    public void LoadLocalImage()
     {
         string imagePath = "Assets/img/" + imageName;
         if (File.Exists(imagePath))
@@ -117,10 +117,11 @@ public class Mission : MonoBehaviour
 
             targetImage.sprite = sprite;
 
+            TextMeshProUGUI targetText = canvasOverlay.GetComponentInChildren<TextMeshProUGUI>();
+
+            targetText.text = "";
             targetImage.enabled = true;
             canvasOverlay.SetActive(true);
-            await Task.Delay(5000); // Wait 5 sec
-            canvasOverlay.SetActive(false);
         }
         else
         {
@@ -128,16 +129,13 @@ public class Mission : MonoBehaviour
         }
     }
 
-    public async Task ShowError(string error)
+    public void ShowError(string error)
     {
         TextMeshProUGUI targetText = canvasOverlay.GetComponentInChildren<TextMeshProUGUI>();
 
         targetText.text = error;
         canvasOverlay.SetActive(true);
         targetImage.enabled = false;
-        await Task.Delay(5000); // Wait 5 sec
-        canvasOverlay.SetActive(false);
-        targetText.text = "";
     }
 
     virtual public void SetMissionPositionOnSceneLoad()

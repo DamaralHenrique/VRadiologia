@@ -2463,6 +2463,9 @@ MonoBehaviour:
   highlightMaterial: {fileID: 0}
   rightTriggerAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  buttonAction: {fileID: 2537374566068122601, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  canvasOverlay: {fileID: 2134787942}
 --- !u!114 &511804668
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,14 +12,21 @@ public class Interactor : MonoBehaviour {
 
     public InputActionReference rightTriggerAction;
 
+    public InputActionReference buttonAction;
+    public GameObject canvasOverlay;
+
     private void Awake() {
         rightTriggerAction.action.Enable();
         rightTriggerAction.action.performed += ManageInteractions;
+        buttonAction.action.Enable();
+        buttonAction.action.performed += ButtonInteractions;
     }
 
     private void OnDestroy() {
         rightTriggerAction.action.Disable();
         rightTriggerAction.action.performed -= ManageInteractions;
+        buttonAction.action.Disable();
+        buttonAction.action.performed -= ButtonInteractions;
     }
 
     // Start is called before the first frame update
@@ -111,5 +118,9 @@ public class Interactor : MonoBehaviour {
                 interactObj.Interact();
             }
         }
+    }
+
+    void ButtonInteractions(InputAction.CallbackContext context) {
+        canvasOverlay.SetActive(false);
     }
 }
