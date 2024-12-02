@@ -767,6 +767,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 
   hasSpawn: 1
+  spriteRenderer: {fileID: 0}
 --- !u!1 &97423160
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,9 +2627,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Em sua m\xE3o esquerda h\xE1 uma lista do passo-a-passo da prepara\xE7\xE3o
-    para o exame. A lista \xE9 numerada e essa ordem deve ser respeitada. Objetivos
-    com mesma ordem podem ser executados em qualquer ordem entre si."
+  m_text: "Em sua m\xE3o esquerda h\xE1 uma lista das etapas para prepara\xE7\xE3o
+    do exame. A lista \xE9 numerada e essa ordem deve ser respeitada. \n\nObjetivos
+    com mesmo n\xFAmero podem ser executados em qualquer ordem entre si."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2764,7 +2765,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Ele \xE9 um simulador para o procedimento de exame <b>PET-CT</b>. Seu
     objetivo \xE9 passar por todos os processos de prepara\xE7\xE3o para exame na
-    vis\xE3o de um IOE (Indiv\xEDduo organizacionalmente exposto)."
+    vis\xE3o de um IOE (Indiv\xEDduo ocupacionalmente exposto)."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3845,6 +3846,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 08-Exame.jpg
   hasSpawn: 1
+  spriteRenderer: {fileID: 21300000, guid: febe67c3c126b1e439e5eae4e4dfd56e, type: 3}
   door: {fileID: 522501234}
   pacient: {fileID: 931551551}
   pacientLayDown: {fileID: 185191338}
@@ -4182,6 +4184,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: Espera.jpg
   hasSpawn: 1
+  spriteRenderer: {fileID: 21300000, guid: 4083f0a2e51bdf64ebea0ddd1232f89b, type: 3}
 --- !u!1 &750626514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4804,6 +4807,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 07-Deita.jpg
   hasSpawn: 1
+  spriteRenderer: {fileID: 21300000, guid: 535ce429d503a58488d35cc4a5e2f259, type: 3}
   pacient: {fileID: 185191338}
 --- !u!1001 &790044124
 PrefabInstance:
@@ -5285,6 +5289,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 
   hasSpawn: 1
+  spriteRenderer: {fileID: 0}
   door: {fileID: 522501234}
 --- !u!1 &821256586
 GameObject:
@@ -6122,6 +6127,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 09-Libera.jpg
   hasSpawn: 1
+  spriteRenderer: {fileID: 21300000, guid: 2f500d11de2cf5f49adefc5de8430bea, type: 3}
 --- !u!4 &934911310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb11b1f863717c644bf61239bcf9040b,
@@ -6153,6 +6159,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 04-Injecao.jpg
   hasSpawn: 0
+  spriteRenderer: {fileID: 21300000, guid: c9ece48925c47c3468a0e3066686659f, type: 3}
 --- !u!1 &955020881
 GameObject:
   m_ObjectHideFlags: 0
@@ -6816,6 +6823,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 06-Leva.jpg
   hasSpawn: 1
+  spriteRenderer: {fileID: 21300000, guid: 37ff4baca9e0f4749b2cecd8eac4c585, type: 3}
   pacient: {fileID: 751724539}
 --- !u!1001 &997204895
 PrefabInstance:
@@ -6953,6 +6961,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 
   hasSpawn: 1
+  spriteRenderer: {fileID: 0}
   Tray: {fileID: 1360348412}
 --- !u!135 &998501923
 SphereCollider:
@@ -8715,6 +8724,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 02-Confirmacao.jpg
   hasSpawn: 1
+  spriteRenderer: {fileID: 21300000, guid: f0c0b03ac03b09a4e811defe2d538a8c, type: 3}
   pacient: {fileID: 974587227}
 --- !u!114 &1109563186
 MonoBehaviour:
@@ -10336,6 +10346,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 03-Averiguacao.jpg
   hasSpawn: 0
+  spriteRenderer: {fileID: 21300000, guid: 3c03e1ce0137d434a9cc112fda3494aa, type: 3}
 --- !u!1 &1479806360
 GameObject:
   m_ObjectHideFlags: 0
@@ -11144,7 +11155,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11312,6 +11323,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 01-Protecao.jpg
   hasSpawn: 1
+  spriteRenderer: {fileID: 21300000, guid: 31650ff604a78914a918a9e23e8a16cc, type: 3}
 --- !u!114 &1674119612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13142,6 +13154,7 @@ MonoBehaviour:
   targetImage: {fileID: 107721489}
   imageName: 
   hasSpawn: 1
+  spriteRenderer: {fileID: 0}
   Tray: {fileID: 97423160}
 --- !u!1 &1950638207
 GameObject:

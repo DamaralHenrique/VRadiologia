@@ -23,6 +23,7 @@ public class Mission : MonoBehaviour
     public Image targetImage;
     public string imageName;
     public bool hasSpawn = true;
+    public Sprite spriteRenderer;
 
     void Start()
     {
@@ -97,35 +98,14 @@ public class Mission : MonoBehaviour
 
     public void LoadLocalImage()
     {
-        string imagePath = "Assets/img/" + imageName;
-        if (File.Exists(imagePath))
-        {
-            byte[] imageData = File.ReadAllBytes(imagePath);
-            Texture2D texture = new Texture2D(2, 2);
-            // texture.LoadImage(imageData);
-            bool isLoaded = texture.LoadImage(imageData);
-
-            if (!isLoaded)
-            {
-                Debug.LogError("Falha ao carregar a imagem.");
-                return;
-            }
-
-            Sprite sprite = Sprite.Create(texture, 
-                new Rect(0, 0, texture.width, texture.height), 
-                new Vector2(0.5f, 0.5f));
-
-            targetImage.sprite = sprite;
+        if(spriteRenderer){
+            targetImage.sprite = spriteRenderer;
 
             TextMeshProUGUI targetText = canvasOverlay.GetComponentInChildren<TextMeshProUGUI>();
 
             targetText.text = "";
             targetImage.enabled = true;
             canvasOverlay.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("Arquivo não encontrado: " + imagePath);
         }
     }
 
